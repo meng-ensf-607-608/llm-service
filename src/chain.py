@@ -8,7 +8,7 @@ from src.model_factory import GoogleGenerativeAIFactory
 
 
 def create_chain(model_name):
-    model_factory: LLMModelFactory = GoogleGenerativeAIFactory(model_name)
+    model_factory: LLMModelFactory = GoogleGenerativeAIFactory(os.getenv("GOOGLE_LLM_MODEL"))
     output_parser = JsonOutputParser(pydantic_object=HealthRecommendations)
     model = model_factory.create_model()
     prompt = create_prompt(template)

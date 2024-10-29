@@ -1,9 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, PositiveInt
 from typing import List, Optional
 
 class PatientInput(BaseModel):
     complaints: str
-    age: int
+    age: PositiveInt
     gender: str
     occupation: str
     chronic_conditions: Optional[str] = None
@@ -11,7 +11,7 @@ class PatientInput(BaseModel):
 
 class Cause(BaseModel):
     cause: str
-    severity: int
+    severity: PositiveInt
     symptoms: str
 
 
