@@ -4,7 +4,6 @@ from src.prompt_template import template
 from src.model_factory import GoogleGenerativeAIFactory
 from src.config import MODEL_TYPE_GEMINI
 from langchain_core.prompts import PromptTemplate
-import logging
 
 
 def create_chain(model_type):

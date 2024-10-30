@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
 
-from src.config import GEMINI_ENV_KEY
+from src.config import GEMINI_ENV_KEY, MODEL_TEMPERATURE_ENV_KEY
 
 
 class LLMModelFactory(ABC):
@@ -16,9 +16,9 @@ class LLMModelFactory(ABC):
 class GoogleGenerativeAIFactory(LLMModelFactory):
     """Concrete factory for creating Google Generative AI models."""
 
-    def __init__(self, temperature: float = 0.9):
+    def __init__(self):
         self.model_name = os.getenv(GEMINI_ENV_KEY)
-        self.temperature = temperature
+        self.temperature = float(os.getenv(MODEL_TEMPERATURE_ENV_KEY, 0))
 
     def create_model(self):
         return ChatGoogleGenerativeAI(model=self.model_name, temperature=self.temperature)
