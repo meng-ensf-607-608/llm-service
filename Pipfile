@@ -10,6 +10,8 @@ langchain-google-vertexai = "~=2.0.3"
 langchain-google-genai = "*"
 google-generativeai = "*"
 langserve = {extras = ["all"], version = "*"}
+pytest = "~=8.3.3"
+pytest-mock = "~=3.14.0"
 
 [dev-packages]
 
