@@ -3,6 +3,7 @@ from fastapi.responses import RedirectResponse
 from src.llm_chain import create_chain
 from langserve import add_routes
 from src.config import MODEL_TYPE_GEMINI
+from src.data_models import PatientInput
 
 app = FastAPI(
   title="ePhysician LLM Service",
@@ -15,4 +16,4 @@ app = FastAPI(
 async def redirect_root_to_docs():
     return RedirectResponse("/docs")
 
-add_routes(app, create_chain(MODEL_TYPE_GEMINI), path="/diagnose")
+add_routes(app, create_chain(MODEL_TYPE_GEMINI), path="/diagnose", input_type=PatientInput)
