@@ -14,4 +14,5 @@ Rank them based on increasing severity; 1 for the cause with low severity.
 Include the severity and list of symptoms in the response.
 Suggest possible lifestyle changes and dietary changes to remedy the condition.
 Generate a complete JSON object with likely causes, lifestyle changes, and dietary changes based on the provided symptoms.
+{format_instructions}
 """

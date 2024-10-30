@@ -12,7 +12,7 @@ class PatientInput(BaseModel):
 class Cause(BaseModel):
     cause: str
     severity: PositiveInt
-    symptoms: str
+    symptoms: List[str]
 
 
 class HealthRecommendations(BaseModel):
