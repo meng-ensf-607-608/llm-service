@@ -12,6 +12,8 @@ google-generativeai = "*"
 langserve = {extras = ["all"], version = "*"}
 pytest = "~=8.3.3"
 pytest-mock = "~=3.14.0"
+fastapi = "~=0.115.4"
+uvicorn = "~=0.32.0"
 
 [dev-packages]
 
