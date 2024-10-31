@@ -5,17 +5,15 @@ name = "pypi"
 
 [packages]
 langchain = "~=0.3.2"
-python-dotenv = "~=1.0.1"
-langchain-google-vertexai = "~=2.0.3"
-langchain-google-genai = "*"
-google-generativeai = "*"
 langserve = {extras = ["all"], version = "*"}
-pytest = "~=8.3.3"
-pytest-mock = "~=3.14.0"
 fastapi = "~=0.115.4"
 uvicorn = "~=0.32.0"
+langchain-google-genai = "~=2.0.3"
 
 [dev-packages]
+pytest-mock = "~=3.14.0"
+pytest = "~=8.3.3"
+python-dotenv = "~=1.0.1"
 
 [requires]
 python_version = "3.11"

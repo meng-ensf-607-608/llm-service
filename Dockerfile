@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM python:3.11-slim
 ENV PYTHONUNBUFFERED True
 
 ENV APP_HOME /llm-service
