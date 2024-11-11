@@ -1,5 +1,5 @@
 # llm-service
-
+This service offers a REST API endpoint that leverages an LLM model to generate a list of potential causes based on patient information and symptoms, along with recommendations for lifestyle and dietary adjustments.
 
 ## Running the application as a docker container (recommended)
 
