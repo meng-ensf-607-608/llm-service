@@ -31,7 +31,7 @@
 
 1. **Ensure Pipenv is installed**
     
-    If you don't have it installed, you can install it using:
+    If you don't have it on your machine, you can install it using:
     ```sh
         pip install pipenv
     ```
