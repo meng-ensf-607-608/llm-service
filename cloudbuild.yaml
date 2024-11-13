@@ -32,7 +32,7 @@ steps:
     id: Deploy
     entrypoint: gcloud
   - name: 'node:23-alpine'
-    entrypoint: 'bash'
+    entrypoint: 'sh'
     args:
       - '-c'
       - |
