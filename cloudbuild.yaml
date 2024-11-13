@@ -37,7 +37,7 @@ steps:
       - '-c'
       - |
         npm install -g newman
-
+        newman -v
   - name: 'node:23-alpine'
     entrypoint: 'newman'
     args:
