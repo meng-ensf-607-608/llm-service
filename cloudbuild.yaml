@@ -31,15 +31,22 @@ steps:
       - '--quiet'
     id: Deploy
     entrypoint: gcloud
-  - name: 'gcr.io/cloud-builders/curl'
+  - name: 'node:23-alpine'
+    entrypoint: 'bash'
     args:
-      [
-        '-X', 'POST',
-        'https://api.getpostman.com/collections/$_POSTMAN_COLLECTION_ID/run',
-        '-H', 'x-api-key:$_POSTMAN_API_KEY',
-        '-H', 'Content-Type: application/json',
-        '-d', '{"environment":{"id":"$_POSTMAN_ENV_ID"}}'
-      ]
+      - '-c'
+      - |
+        npm install -g newman
+
+  - name: 'node:23-alpine'
+    entrypoint: 'newman'
+    args:
+      - 'run'
+      - 'https://api.postman.com/collections/$_POSTMAN_COLLECTION_ID?access_key=$_POSTMAN_API_KEY'
+      - '--environment'
+      - 'https://api.getpostman.com/environments/$_POSTMAN_ENV_ID?access_key=$_POSTMAN_API_KEY'
+      - '--reporters'
+      - 'cli'
 images:
   - >-
     $_AR_HOSTNAME/$PROJECT_ID/cloud-run-source-deploy/$REPO_NAME/$_SERVICE_NAME:$COMMIT_SHA
