@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
-from logger import get_logger
+from src.logger import get_logger
 
 logger = get_logger(__name__)
 
