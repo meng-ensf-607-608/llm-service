@@ -2,7 +2,7 @@ import pytest
 from unittest.mock import patch, MagicMock
 from src.llm_chain import create_chain, get_model
 from src.config import MODEL_TYPE_GEMINI
-from src.data_models import HealthRecommendations
+from src.data_models import HealthRecommendation
 from src.prompt_template import template
 
 # Test for get_model function
@@ -40,7 +40,7 @@ def test_create_chain(mock_prompt_template, mock_output_parser, mock_get_model):
 
     # Assertions to check if the chain is created correctly
     mock_get_model.assert_called_once_with(MODEL_TYPE_GEMINI)
-    mock_output_parser.assert_called_once_with(pydantic_object=HealthRecommendations)
+    mock_output_parser.assert_called_once_with(pydantic_object=HealthRecommendation)
     mock_prompt_template.assert_called_once_with(
         template=mock_prompt_template.return_value,
         input_variables=["complaints", "age", "gender", "occupation", "chronic_conditions"],

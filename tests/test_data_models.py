@@ -1,6 +1,6 @@
 import pytest
 from pydantic import ValidationError
-from src.data_models import PatientInput, Cause, HealthRecommendations
+from src.data_models import PatientInput, Cause, HealthRecommendation
 
 # Test for PatientInput model
 def test_patient_input_valid():
@@ -81,7 +81,7 @@ def test_health_recommendations_valid():
         "lifestyle_changes": ["Exercise regularly", "Reduce stress"],
         "dietary_changes": ["Increase water intake", "Eat more fruits"]
     }
-    recommendations = HealthRecommendations(**recommendations_data)
+    recommendations = HealthRecommendation(**recommendations_data)
     
     assert len(recommendations.likely_causes) == 1
     assert recommendations.likely_causes[0].cause == "Viral Infection"
@@ -90,7 +90,7 @@ def test_health_recommendations_valid():
 
 def test_health_recommendations_missing_field():
     with pytest.raises(ValidationError):
-        HealthRecommendations(
+        HealthRecommendation(
             likely_causes=[
                 {"cause": "Viral Infection", "severity": 2, "symptoms": ["Fever", "Cough"]}
             ],

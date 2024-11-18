@@ -15,7 +15,7 @@ class Cause(BaseModel):
     symptoms: List[str]
 
 
-class HealthRecommendations(BaseModel):
+class HealthRecommendation(BaseModel):
     likely_causes: List[Cause]
     lifestyle_changes: List[str]
     dietary_changes: List[str]
