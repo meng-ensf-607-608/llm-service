@@ -9,7 +9,7 @@ from src.logger import get_logger
 logger = get_logger(__name__)
 
 def create_chain(model_type):
-    model = get_model(model_type)
+    model = __get_model(model_type)
     output_parser = JsonOutputParser(pydantic_object=HealthRecommendation)
     prompt = PromptTemplate(template=template,
                             input_variables=["complaints", "age", "gender","occupation", "chronic_conditions"],
@@ -20,7 +20,7 @@ def create_chain(model_type):
     logger.debug("----------------------")
     return prompt | model | output_parser
 
-def get_model(type: str):
+def __get_model(type: str):
     logger.debug("Model type: {type}")
     match type:
         case MODEL_TYPE_GEMINI:

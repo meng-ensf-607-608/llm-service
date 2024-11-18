@@ -1,6 +1,6 @@
 import pytest
 from unittest.mock import patch, MagicMock
-from src.llm_chain import create_chain, get_model
+from src.llm_chain import create_chain, __get_model
 from src.config import MODEL_TYPE_GEMINI
 from src.data_models import HealthRecommendation
 from src.prompt_template import template
@@ -13,14 +13,14 @@ def test_get_model_gemini(mock_factory):
     mock_factory.return_value.create_model.return_value = mock_model
 
     # Call the function with MODEL_TYPE_GEMINI
-    result = get_model(MODEL_TYPE_GEMINI)
+    result = __get_model(MODEL_TYPE_GEMINI)
 
     # Assertions to check if the correct model is returned
     mock_factory.return_value.create_model.assert_called_once()
     assert result == mock_model
 
 # Test for create_chain function
-@patch('src.llm_chain.get_model')
+@patch('src.llm_chain.__get_model')
 @patch('src.llm_chain.JsonOutputParser')
 @patch('src.llm_chain.PromptTemplate')
 def test_create_chain(mock_prompt_template, mock_output_parser, mock_get_model):
